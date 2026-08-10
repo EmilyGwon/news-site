@@ -28,6 +28,10 @@
   .slot.active { background:var(--accent); color:#fff; }
   .slot .cnt { font-size:11px; color:var(--dim); }
   .slot.active .cnt { color:#dbe7ff; }
+  .src { display:inline-block; font-size:10px; font-weight:700; border-radius:4px; padding:1px 5px; margin-left:5px; vertical-align:1px; }
+  .src.naver { background:#e4f7ec; color:#059a48; }
+  .src.nate { background:#ffe9e6; color:#e5432e; }
+  .slot.active .src { background:rgba(255,255,255,.25); color:#fff; }
   .list { background:var(--panel); }
   .list .lh { padding:11px 14px; font-size:12px; color:var(--dim); border-bottom:1px solid var(--line); position:sticky; top:0; background:var(--panel); }
   .row { display:flex; gap:9px; align-items:flex-start; padding:10px 12px; border-bottom:1px solid var(--line); cursor:pointer; }
@@ -158,6 +162,8 @@ const Copied = {
 };
 
 function esc(s){ return (s||'').replace(/[&<>]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;'}[c])); }
+function srcName(b){ return b.source==='nate' ? '네이트' : '네이버'; }
+function srcBadge(b){ return '<span class="src '+(b.source==='nate'?'nate':'naver')+'">'+srcName(b)+'</span>'; }
 function fmtCredit(cap){
   const p = (cap||'').split(/\s*\/\s*(?=사진\s*[=:｜|]|출처\s*[:=]|사진제공)/);
   if(p.length>1) return esc(p[0])+' <span class="cred">/ '+esc(p.slice(1).join(' / '))+'</span>';
@@ -214,7 +220,7 @@ function renderNav(){
   for(const date of Object.keys(byDate)){
     h+='<div class="date">📅 '+date+'</div>';
     for(const b of byDate[date])
-      h+='<div class="slot '+(b.id===curBatch?'active':'')+'" data-id="'+b.id+'"><span>🕘 '+b.time+'</span><span class="cnt">'+b.doneCount+'/'+b.count+'</span></div>';
+      h+='<div class="slot '+(b.id===curBatch?'active':'')+'" data-id="'+b.id+'"><span>🕘 '+b.time+srcBadge(b)+'</span><span class="cnt">'+b.doneCount+'/'+b.count+'</span></div>';
   }
   const nav=document.getElementById('nav'); nav.innerHTML=h||'<div class="detail-empty">배치 없음</div>';
   nav.querySelectorAll('.slot').forEach(el=>el.onclick=()=>{ curBatch=el.dataset.id; curRank=null; renderNav(); renderList(); renderDetail(); });
@@ -223,7 +229,7 @@ function renderList(){
   const b=A.batches.find(x=>x.id===curBatch); const list=document.getElementById('list');
   if(!b){ list.innerHTML=''; return; }
   const takenCnt=b.items.filter(it=>Copied.is(b.id,it.rank)).length;
-  let h='<div class="lh">📄 '+b.date+' '+b.time+' · 기사 '+b.count+'건 · 리라이트 '+b.doneCount+' · <span style="color:var(--copied)">복사됨 '+takenCnt+'</span></div>';
+  let h='<div class="lh">📄 '+b.date+' '+b.time+' · '+srcName(b)+' · 기사 '+b.count+'건 · 리라이트 '+b.doneCount+' · <span style="color:var(--copied)">복사됨 '+takenCnt+'</span></div>';
   for(const it of b.items){
     const done=!!it.rewritten, taken=Copied.is(b.id,it.rank);
     const who=taken?Copied.byShort(b.id,it.rank):'';
@@ -244,7 +250,7 @@ function renderDetail(){
     ? '<span class="takenbadge">✔ '+(who?esc(who)+' · ':'')+Copied.time(b.id,it.rank)+' 복사</span><button class="linkbtn" id="undoBtn">복사 취소</button>'
     : '<button class="btn" id="copyBtn" '+(done?'':'disabled')+'>📋 리라이트 복사</button>';
   let h='<div class="dhead"><div class="rk">'+it.rank+'</div><div class="dt">'+esc((it.rewritten||it.original).title)+'</div>'+ctrl+'</div>';
-  h+='<div class="cols"><div class="col before"><h4>◀ 전 · 원문 (네이버 수집)</h4>'+articleHTML(it.original)+'</div>'
+  h+='<div class="cols"><div class="col before"><h4>◀ 전 · 원문 ('+srcName(b)+' 수집)</h4>'+articleHTML(it.original)+'</div>'
     +'<div class="col after"><h4>후 · 리라이트 ▶</h4>'+(done?articleHTML(it.rewritten):'<p class="waiting">아직 리라이트되지 않았습니다. (원문만 수집)</p>')+'</div></div>';
   d.innerHTML=h;
   const cb=document.getElementById('copyBtn');
