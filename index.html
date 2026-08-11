@@ -171,7 +171,7 @@ function fmtCredit(cap){
 }
 function blocksHTML(blocks){
   return (blocks||[]).map(b=>{
-    if(b.type==='image') return '<div class="imgblk"><img loading="lazy" src="'+esc(b.src)+'">'+(b.caption?'<div class="cap">'+fmtCredit(b.caption)+'</div>':'')+'</div>';
+    if(b.type==='image') return '<div class="imgblk"><img loading="lazy" referrerpolicy="no-referrer" src="'+esc(b.src)+'">'+(b.caption?'<div class="cap">'+fmtCredit(b.caption)+'</div>':'')+'</div>';
     if(b.added) return '<p class="added"><span class="addtag">🔴 확인 필요</span>'+esc(b.text)+'</p>';
     return '<p class="par">'+esc(b.text)+'</p>';
   }).join('');
@@ -184,7 +184,7 @@ function articleHTML(a){
 function buildCopyHTML(a){
   let h = '<p><b>'+esc(a.title)+'</b></p>';
   for(const b of a.blocks){
-    if(b.type==='image'){ h += '<p><img src="'+esc(b.src)+'" style="max-width:100%"></p>'; if(b.caption) h += '<p style="color:#666;font-size:13px">'+esc(b.caption)+'</p>'; }
+    if(b.type==='image'){ h += '<p><img referrerpolicy="no-referrer" src="'+esc(b.src)+'" style="max-width:100%"></p>'; if(b.caption) h += '<p style="color:#666;font-size:13px">'+esc(b.caption)+'</p>'; }
     else if(b.added){ h += '<p>〔확인필요〕 '+esc(b.text)+'</p>'; }
     else { h += '<p>'+esc(b.text)+'</p>'; }
   }
