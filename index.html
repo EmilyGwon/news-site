@@ -82,6 +82,64 @@
   #login .loginbtn:disabled { opacity:.5; }
   #login .err { color:var(--red); font-size:13px; margin-top:12px; min-height:18px; }
   #login .foot { color:var(--dim); font-size:11px; margin-top:16px; line-height:1.6; }
+  /* ---------- 탭 ---------- */
+  header .tabs { display:flex; gap:4px; margin-left:8px; }
+  header .tab { background:transparent; border:1px solid var(--line); color:var(--dim); border-radius:6px; padding:5px 12px; font-size:12px; font-weight:600; cursor:pointer; font-family:inherit; }
+  header .tab:hover { background:var(--panel2); }
+  header .tab.on { background:var(--accent); border-color:var(--accent); color:#fff; }
+  /* ---------- 이용 현황 ---------- */
+  #stats { display:none; height:calc(100vh - 49px); overflow-y:auto; padding:20px 24px 60px; }
+  .st-head { display:flex; align-items:center; gap:10px; flex-wrap:wrap; margin-bottom:16px; }
+  .st-head h2 { font-size:17px; margin:0; }
+  .st-head select { padding:7px 10px; border:1px solid var(--line); border-radius:6px; background:var(--panel); color:var(--text); font-size:13px; font-family:inherit; cursor:pointer; }
+  .st-head .spacer { flex:1; }
+  .st-note { color:var(--dim); font-size:11.5px; line-height:1.6; }
+  .kpis { display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr)); gap:12px; margin-bottom:16px; }
+  .kpi { background:var(--panel); border:1px solid var(--line); border-radius:10px; padding:13px 15px; box-shadow:0 1px 2px rgba(45,62,80,.04); }
+  .kpi .lab { font-size:11.5px; color:var(--dim); letter-spacing:.02em; }
+  .kpi .val { font-size:25px; font-weight:700; margin-top:3px; line-height:1.2; }
+  .kpi .val small { font-size:13px; font-weight:600; color:var(--dim); margin-left:2px; }
+  .kpi .sub { font-size:11.5px; color:var(--dim); margin-top:3px; }
+  .kpi.hi { background:linear-gradient(180deg,#fff6f3,#fff); border-color:#ffd9cd; }
+  .card { background:var(--panel); border:1px solid var(--line); border-radius:10px; padding:16px 18px; margin-bottom:14px; box-shadow:0 1px 2px rgba(45,62,80,.04); }
+  .card h3 { margin:0 0 14px; font-size:12.5px; color:var(--dim); letter-spacing:.03em; font-weight:700; display:flex; align-items:center; gap:8px; flex-wrap:wrap; }
+  .card h3 .rest { font-weight:500; }
+  .grid2 { display:grid; grid-template-columns:1fr 1fr; gap:14px; }
+  .lg { display:flex; gap:14px; font-size:11.5px; color:var(--dim); font-weight:500; letter-spacing:0; margin-left:auto; }
+  .lg i { display:inline-block; width:9px; height:9px; border-radius:2px; margin-right:5px; vertical-align:0px; }
+  .c-naver { background:#00bda5; } .c-nate { background:#ff7a59; }
+  .c-am { background:#516f90; } .c-pm { background:#7fd1c7; }
+  /* 세로 막대 */
+  .chart { display:flex; align-items:flex-end; gap:3px; height:158px; }
+  .chart .cw { flex:1; min-width:0; display:flex; flex-direction:column; justify-content:flex-end; align-items:center; height:100%; }
+  .chart .num { font-size:9.5px; color:var(--dim); margin-bottom:3px; line-height:1; }
+  .chart .stack { width:100%; max-width:30px; display:flex; flex-direction:column-reverse; border-radius:3px 3px 0 0; overflow:hidden; background:#eef1f6; }
+  .chart .seg { width:100%; }
+  .chart .xl { font-size:9.5px; color:var(--dim); margin-top:6px; line-height:1.3; text-align:center; white-space:nowrap; }
+  .chart .cw.we .xl { color:#c0c8d4; }
+  .chart .cw.td .xl { color:var(--accent); font-weight:700; }
+  /* 가로 막대 */
+  .hbars { display:flex; flex-direction:column; gap:11px; }
+  .hb { display:grid; grid-template-columns:78px 1fr 92px; align-items:center; gap:10px; font-size:12.5px; }
+  .hb .track { background:#eef1f6; border-radius:4px; height:16px; overflow:hidden; }
+  .hb .fill { height:100%; border-radius:4px; }
+  .hb .n { text-align:right; color:var(--dim); font-size:12px; }
+  .hb .n b { color:var(--text); font-size:13px; }
+  /* 표 */
+  .tblwrap { overflow-x:auto; }
+  .tbl { width:100%; border-collapse:collapse; font-size:12.5px; }
+  .tbl th { text-align:right; color:var(--dim); font-weight:600; font-size:11.5px; padding:7px 9px; border-bottom:1px solid var(--line); white-space:nowrap; position:sticky; top:0; background:var(--panel); }
+  .tbl th:first-child, .tbl td:first-child { text-align:left; }
+  .tbl td { text-align:right; padding:7px 9px; border-bottom:1px solid #eef1f6; white-space:nowrap; }
+  .tbl tbody tr:hover td { background:var(--panel2); }
+  .tbl td.zero { color:#c0c8d4; }
+  .tbl tfoot td { font-weight:700; border-top:2px solid var(--line); border-bottom:0; background:var(--panel2); }
+  .tbl tr.today td { background:#fff6f3; }
+  .tbl .who2 { color:var(--dim); font-size:11.5px; }
+  .st-empty { color:var(--dim); padding:50px; text-align:center; line-height:1.9; background:var(--panel); border:1px solid var(--line); border-radius:10px; }
+  .minibtn { background:transparent; border:1px solid var(--line); color:var(--dim); border-radius:6px; padding:6px 11px; font-size:12px; cursor:pointer; font-family:inherit; }
+  .minibtn:hover { background:var(--panel2); }
+  @media (max-width:900px){ .grid2{grid-template-columns:1fr} #stats{height:auto;padding:16px 12px 40px} }
   #app { display:none; }
   @media (max-width:900px){ .wrap{grid-template-columns:1fr; height:auto} aside,.list{max-height:none} .cols{grid-template-columns:1fr} .col.before{border-right:0;border-bottom:1px solid var(--line)} }
 </style>
@@ -109,16 +167,21 @@
 <div id="app">
   <header>
     <h1>🎨 콘텐츠 재구성 놀이터</h1>
+    <span class="tabs">
+      <button class="tab on" id="tabArchive">📰 아카이브</button>
+      <button class="tab" id="tabStats">📊 월별 이용 현황</button>
+    </span>
     <span class="sub" id="genAt"></span>
     <span class="spacer"></span>
     <span class="who" id="who"></span>
     <button class="logout" id="logoutBtn" style="display:none">로그아웃</button>
   </header>
-  <div class="wrap">
+  <div class="wrap" id="viewArchive">
     <aside id="nav"></aside>
     <section class="list" id="list"></section>
     <main id="detail"><div class="detail-empty">왼쪽에서 시간대를 고르고, 기사 제목을 클릭하세요.</div></main>
   </div>
+  <section id="stats"></section>
 </div>
 
 <script src="config.js"></script>
@@ -148,13 +211,19 @@ const Copied = {
   async mark(bid, rank) {
     const rec = { by: user ? user.email : "me", at: new Date().toISOString() };
     this.map[this.key(bid, rank)] = rec;
-    if (supa) { await supa.from("copied").upsert({ batch_id: bid, rank, copied_by: rec.by, copied_at: rec.at }); }
+    if (supa) {
+      await supa.from("copied").upsert({ batch_id: bid, rank, copied_by: rec.by, copied_at: rec.at });
+      // 누적 이력(append-only) — copy_events 테이블이 없으면 조용히 무시된다
+      await supa.from("copy_events").insert({ batch_id: bid, rank, copied_by: rec.by, copied_at: rec.at });
+    }
     else { this._save(); }
+    Stats.loaded = false;
   },
   async clear(bid, rank) {
     delete this.map[this.key(bid, rank)];
     if (supa) { await supa.from("copied").delete().eq("batch_id", bid).eq("rank", rank); }
     else { this._save(); }
+    Stats.loaded = false;
   },
   time(bid, rank) { const c = this.info(bid, rank); if (!c) return ""; const d = new Date(c.at); return ("0" + d.getHours()).slice(-2) + ":" + ("0" + d.getMinutes()).slice(-2); },
   byShort(bid, rank) { const c = this.info(bid, rank); if (!c || !c.by) return ""; return c.by.split("@")[0]; },
@@ -259,6 +328,273 @@ function renderDetail(){
   if(ub) ub.onclick=async()=>{ await Copied.clear(b.id,it.rank); renderList(); renderDetail(); };
 }
 
+// ---------- 월별 이용 현황 ----------
+const WD = ['일','월','화','수','목','금','토'];
+function pad2(n){ return ('0'+n).slice(-2); }
+function todayStr(){ const d=new Date(); return d.getFullYear()+'-'+pad2(d.getMonth()+1)+'-'+pad2(d.getDate()); }
+function pctOf(n,d){ return d ? Math.round(n*1000/d)/10 : 0; }
+// "2026-08-20_1400" / "2026-08-20_1400-nate" → 날짜·사이클·출처
+function parseBatchId(id){
+  const m = /^(\d{4}-\d{2}-\d{2})_(\d{2})(\d{2})(?:-([a-z]+))?$/.exec(id||'');
+  if(!m) return null;
+  return { date:m[1], month:m[1].slice(0,7), hh:+m[2], mm:+m[3], source:(m[4]==='nate')?'nate':'naver' };
+}
+
+const Stats = {
+  rows:[], src:'copied', loaded:false, loading:false, month:null,
+  async _page(table){
+    const out=[], N=1000;
+    for(let from=0;;from+=N){
+      const { data, error } = await supa.from(table).select('batch_id,rank,copied_by,copied_at').range(from, from+N-1);
+      if(error) return null;
+      out.push.apply(out, data||[]);
+      if(!data || data.length<N) break;
+    }
+    return out;
+  },
+  async load(){
+    this.loading=true;
+    let raw=null;
+    if(supa){
+      raw = await this._page('copy_events');            // 누적 이력이 있으면 우선 사용
+      if(!(raw && raw.length)){ const c = await this._page('copied'); if(c){ raw=c; this.src='copied'; } }
+      else { this.src='events'; }
+    }
+    if(raw){
+      this.rows = raw.map(r=>({ batchId:r.batch_id, rank:r.rank, by:r.copied_by||'', at:r.copied_at }));
+    } else {
+      this.rows = Object.keys(Copied.map).map(k=>{
+        const i=k.lastIndexOf('#'), c=Copied.map[k];
+        return { batchId:k.slice(0,i), rank:+k.slice(i+1), by:c.by||'', at:c.at };
+      });
+      this.src='local';
+    }
+    this.loaded=true; this.loading=false;
+  },
+  months(){
+    const set={};
+    for(const r of this.rows){ const p=parseBatchId(r.batchId); if(p) set[p.month]=1; }
+    for(const b of A.batches){ if(b.date) set[b.date.slice(0,7)]=1; }
+    set[todayStr().slice(0,7)]=1;
+    return Object.keys(set).sort().reverse();
+  },
+  agg(month){
+    const days={}, users={}, hours=new Array(24).fill(0);
+    let total=0, naver=0, nate=0, am=0, pm=0;
+    for(const r of this.rows){
+      const p=parseBatchId(r.batchId);
+      if(!p || p.month!==month) continue;
+      total++;
+      const d = days[p.date] || (days[p.date]={ date:p.date, total:0, am:0, pm:0, naver:0, nate:0, users:{} });
+      d.total++;
+      if(p.source==='nate'){ nate++; d.nate++; } else { naver++; d.naver++; }
+      if(p.hh<12){ am++; d.am++; } else { pm++; d.pm++; }
+      const who=((r.by||'').split('@')[0])||'(미상)';
+      d.users[who]=(d.users[who]||0)+1;
+      const u = users[who] || (users[who]={ who:who, total:0, naver:0, nate:0, am:0, pm:0, days:{} });
+      u.total++; u.days[p.date]=1;
+      if(p.source==='nate') u.nate++; else u.naver++;
+      if(p.hh<12) u.am++; else u.pm++;
+      if(r.at){ const t=new Date(r.at); if(!isNaN(t.getTime())) hours[t.getHours()]++; }
+    }
+    // 공급량 = 아카이브에 남아 있는 배치의 리라이트 완료 건수
+    let supDone=0, supTotal=0; const supDays={};
+    for(const b of A.batches){
+      if((b.date||'').slice(0,7)!==month) continue;
+      supDone += b.doneCount||0; supTotal += b.count||0;
+      supDays[b.date]=(supDays[b.date]||0)+(b.doneCount||0);
+    }
+    const dayList=Object.keys(days).sort().map(k=>days[k]);
+    const userList=Object.keys(users).map(k=>users[k]).sort((x,y)=>y.total-x.total);
+    let best=null; for(const d of dayList) if(!best||d.total>best.total) best=d;
+    return { month:month, total:total, naver:naver, nate:nate, am:am, pm:pm, hours:hours,
+             days:dayList, dayMap:days, users:userList, supDone:supDone, supTotal:supTotal,
+             supDays:supDays, activeDays:dayList.length, best:best };
+  }
+};
+
+function dayRange(month, dayMap){
+  // 해당 월 1일 ~ (이번 달이면 오늘, 지난 달이면 말일). 기록이 있는 날은 무조건 포함
+  const y=+month.slice(0,4), mo=+month.slice(5,7);
+  const last=new Date(y, mo, 0).getDate();
+  const t=todayStr();
+  let end = (month===t.slice(0,7)) ? +t.slice(8,10) : last;
+  for(const k of Object.keys(dayMap)) end=Math.max(end, +k.slice(8,10));
+  const out=[];
+  for(let i=1;i<=Math.min(end,last);i++){
+    const date=month+'-'+pad2(i);
+    out.push(dayMap[date] || { date:date, total:0, am:0, pm:0, naver:0, nate:0, users:{} });
+  }
+  return out;
+}
+function dayChart(days){
+  const t=todayStr();
+  let max=1; for(const d of days) if(d.total>max) max=d.total;
+  let h='<div class="chart">';
+  for(const d of days){
+    const wd=new Date(d.date+'T00:00:00').getDay();
+    const H = d.total ? Math.max(6, Math.round(d.total/max*118)) : 3;
+    const nv = d.total ? Math.round(d.naver/d.total*H) : 0;
+    const nt = H-nv;
+    h+='<div class="cw'+((wd===0||wd===6)?' we':'')+(d.date===t?' td':'')+'">'
+      +'<div class="num">'+(d.total||'')+'</div>'
+      +'<div class="stack" style="height:'+H+'px">'
+      +(d.total&&nv?'<div class="seg c-naver" style="height:'+nv+'px"></div>':'')
+      +(d.total&&nt?'<div class="seg c-nate" style="height:'+nt+'px"></div>':'')
+      +'</div>'
+      +'<div class="xl">'+(+d.date.slice(8,10))+'<br>'+WD[wd]+'</div></div>';
+  }
+  return h+'</div>';
+}
+function hourChart(hours){
+  let max=1; for(const v of hours) if(v>max) max=v;
+  let h='<div class="chart" style="height:126px">';
+  for(let i=0;i<24;i++){
+    const H = hours[i] ? Math.max(5, Math.round(hours[i]/max*80)) : 3;
+    h+='<div class="cw"><div class="num">'+(hours[i]||'')+'</div>'
+      +'<div class="stack" style="height:'+H+'px">'+(hours[i]?'<div class="seg c-am" style="height:100%"></div>':'')+'</div>'
+      +'<div class="xl">'+(i%3===0?i+'시':'')+'</div></div>';
+  }
+  return h+'</div>';
+}
+function hbar(label, val, total, cls){
+  const p=pctOf(val,total);
+  return '<div class="hb"><div>'+label+'</div><div class="track"><div class="fill '+cls+'" style="width:'+p+'%"></div></div>'
+       + '<div class="n"><b>'+val+'</b>건 · '+p+'%</div></div>';
+}
+function usersLabel(obj){
+  const ks=Object.keys(obj).sort((x,y)=>obj[y]-obj[x]);
+  if(!ks.length) return '<span class="zero">–</span>';
+  return '<span class="who2">'+ks.map(k=>esc(k)+' '+obj[k]).join(', ')+'</span>';
+}
+function downloadCSV(name, rows){
+  const csv=rows.map(r=>r.map(c=>{ const v=String(c==null?'':c); return /[",\n]/.test(v)?'"'+v.replace(/"/g,'""')+'"':v; }).join(',')).join('\r\n');
+  const url=URL.createObjectURL(new Blob(['﻿'+csv],{type:'text/csv;charset=utf-8'}));
+  const a=document.createElement('a'); a.href=url; a.download=name;
+  document.body.appendChild(a); a.click(); a.remove();
+  setTimeout(()=>URL.revokeObjectURL(url), 2000);
+}
+
+function renderStats(){
+  const el=document.getElementById('stats');
+  if(!Stats.loaded){ el.innerHTML='<div class="st-empty">이용 기록을 불러오는 중…</div>'; return; }
+  const months=Stats.months();
+  if(!Stats.month || months.indexOf(Stats.month)<0) Stats.month=months[0];
+  const a=Stats.agg(Stats.month);
+  const t=todayStr(), isCur=(Stats.month===t.slice(0,7));
+  const td=a.dayMap[t];
+  const srcNote = Stats.src==='events' ? '복사 버튼을 누른 모든 기록(누적 이력)을 집계합니다.'
+                : Stats.src==='local'  ? '이 브라우저에 저장된 기록만 집계합니다. (로그인하면 팀 전체 집계)'
+                : '현재 “복사됨” 표시가 남아 있는 건을 집계합니다. 복사 취소한 건은 빠집니다.';
+
+  let h='<div class="st-head"><h2>📊 월별 이용 현황</h2>'
+    + '<select id="stMonth">'+months.map(m=>'<option value="'+m+'"'+(m===Stats.month?' selected':'')+'>'+m.slice(0,4)+'년 '+(+m.slice(5,7))+'월</option>').join('')+'</select>'
+    + '<span class="spacer"></span>'
+    + '<button class="minibtn" id="stCsv">⬇ CSV 내려받기</button>'
+    + '<button class="minibtn" id="stReload">↻ 새로고침</button></div>';
+
+  h+='<div class="kpis">';
+  if(isCur){
+    h+='<div class="kpi hi"><div class="lab">오늘 '+(+t.slice(5,7))+'/'+(+t.slice(8,10))+'('+WD[new Date(t+'T00:00:00').getDay()]+') 복사</div>'
+      +'<div class="val">'+((td&&td.total)||0)+'<small>건</small></div>'
+      +'<div class="sub">'+(td?('네이버 '+td.naver+' · 네이트 '+td.nate):'아직 복사 없음')+'</div></div>';
+  }
+  h+='<div class="kpi"><div class="lab">이달 총 복사</div><div class="val">'+a.total+'<small>건</small></div><div class="sub">복사한 날 '+a.activeDays+'일</div></div>'
+    +'<div class="kpi"><div class="lab">하루 평균(복사한 날)</div><div class="val">'+(a.activeDays?Math.round(a.total/a.activeDays*10)/10:0)+'<small>건</small></div>'
+    +'<div class="sub">'+(a.best?('최다 '+(+a.best.date.slice(5,7))+'/'+(+a.best.date.slice(8,10))+' '+a.best.total+'건'):'–')+'</div></div>'
+    +'<div class="kpi"><div class="lab">공급 대비 활용률</div><div class="val">'+pctOf(a.total,a.supDone)+'<small>%</small></div>'
+    +'<div class="sub">리라이트 '+a.supDone+'건 중 '+a.total+'건 사용</div></div>'
+    +'<div class="kpi"><div class="lab">이용 인원</div><div class="val">'+a.users.length+'<small>명</small></div>'
+    +'<div class="sub">'+(a.users.length?esc(a.users[0].who)+' 최다 · '+a.users[0].total+'건':'–')+'</div></div>'
+    +'</div>';
+
+  if(!a.total){
+    h+='<div class="st-empty">이 달에는 복사 기록이 없습니다.<br><span class="st-note">'+srcNote+'</span></div>';
+    el.innerHTML=h; bindStats(a); return;
+  }
+
+  const days=dayRange(Stats.month, a.dayMap);
+  h+='<div class="card"><h3>일별 복사 건수<span class="rest"> · '+Stats.month+'</span>'
+    +'<span class="lg"><span><i class="c-naver"></i>네이버</span><span><i class="c-nate"></i>네이트</span></span></h3>'
+    + dayChart(days)+'</div>';
+
+  h+='<div class="grid2">'
+    +'<div class="card"><h3>출처 · 사이클 분해</h3><div class="hbars">'
+    + hbar('네이버', a.naver, a.total, 'c-naver')
+    + hbar('네이트', a.nate, a.total, 'c-nate')
+    + '<div style="height:2px"></div>'
+    + hbar('오전(08시)', a.am, a.total, 'c-am')
+    + hbar('오후(14시~)', a.pm, a.total, 'c-pm')
+    + '</div></div>'
+    +'<div class="card"><h3>복사한 시각 분포<span class="rest"> · 실제로 가져간 시각</span></h3>'+hourChart(a.hours)+'</div>'
+    +'</div>';
+
+  h+='<div class="card"><h3>일별 상세</h3><div class="tblwrap"><table class="tbl"><thead><tr>'
+    +'<th>날짜</th><th>복사</th><th>오전</th><th>오후</th><th>네이버</th><th>네이트</th><th>공급</th><th>활용률</th><th style="text-align:left">이용자</th>'
+    +'</tr></thead><tbody>';
+  const desc=days.slice().reverse();
+  for(const d of desc){
+    const sup=a.supDays[d.date]||0;
+    if(!d.total && !sup) continue;
+    const wd=new Date(d.date+'T00:00:00').getDay();
+    const z=function(v){ return v?String(v):'<span class="zero">0</span>'; };
+    h+='<tr'+(d.date===t?' class="today"':'')+'><td>'+(+d.date.slice(5,7))+'/'+(+d.date.slice(8,10))+' <span class="who2">('+WD[wd]+')</span></td>'
+      +'<td><b>'+z(d.total)+'</b></td><td>'+z(d.am)+'</td><td>'+z(d.pm)+'</td><td>'+z(d.naver)+'</td><td>'+z(d.nate)+'</td>'
+      +'<td class="who2">'+(sup||'–')+'</td><td>'+(sup?pctOf(d.total,sup)+'%':'<span class="zero">–</span>')+'</td>'
+      +'<td style="text-align:left">'+usersLabel(d.users)+'</td></tr>';
+  }
+  h+='</tbody><tfoot><tr><td>합계</td><td>'+a.total+'</td><td>'+a.am+'</td><td>'+a.pm+'</td><td>'+a.naver+'</td><td>'+a.nate+'</td>'
+    +'<td>'+a.supDone+'</td><td>'+pctOf(a.total,a.supDone)+'%</td><td></td></tr></tfoot></table></div></div>';
+
+  h+='<div class="card"><h3>이용자별</h3><div class="tblwrap"><table class="tbl"><thead><tr>'
+    +'<th>이용자</th><th>복사</th><th>비중</th><th>오전</th><th>오후</th><th>네이버</th><th>네이트</th><th>이용일</th>'
+    +'</tr></thead><tbody>';
+  for(const u of a.users){
+    h+='<tr><td>'+esc(u.who)+'</td><td><b>'+u.total+'</b></td><td>'+pctOf(u.total,a.total)+'%</td>'
+      +'<td>'+u.am+'</td><td>'+u.pm+'</td><td>'+u.naver+'</td><td>'+u.nate+'</td><td>'+Object.keys(u.days).length+'일</td></tr>';
+  }
+  h+='</tbody></table></div></div>';
+
+  h+='<div class="st-note">· '+srcNote+'<br>'
+    +'· 오전/오후는 기사를 수집한 사이클 기준입니다(08시 / 14시). 실제 작업 시각은 “복사한 시각 분포”를 보세요.<br>'
+    +'· 공급·활용률은 아카이브에 남아 있는 배치 기준이라, 오래된 배치가 정리되면 낮게 잡힐 수 있습니다.</div>';
+
+  el.innerHTML=h;
+  bindStats(a);
+}
+
+function bindStats(a){
+  const sel=document.getElementById('stMonth');
+  if(sel) sel.onchange=function(){ Stats.month=sel.value; renderStats(); };
+  const rl=document.getElementById('stReload');
+  if(rl) rl.onclick=async function(){ rl.textContent='불러오는 중…'; await Stats.load(); renderStats(); };
+  const cv=document.getElementById('stCsv');
+  if(cv) cv.onclick=function(){
+    const rows=[['날짜','요일','복사','오전','오후','네이버','네이트','공급(리라이트)','활용률(%)','이용자']];
+    for(const d of dayRange(Stats.month, a.dayMap)){
+      const sup=a.supDays[d.date]||0;
+      if(!d.total && !sup) continue;
+      const ks=Object.keys(d.users).sort((x,y)=>d.users[y]-d.users[x]);
+      rows.push([d.date, WD[new Date(d.date+'T00:00:00').getDay()], d.total, d.am, d.pm, d.naver, d.nate, sup,
+                 sup?pctOf(d.total,sup):'', ks.map(k=>k+' '+d.users[k]).join(' / ')]);
+    }
+    rows.push(['합계','',a.total,a.am,a.pm,a.naver,a.nate,a.supDone,pctOf(a.total,a.supDone),'']);
+    downloadCSV('이용현황_'+Stats.month+'.csv', rows);
+  };
+}
+
+function showView(v){
+  const arch = (v!=='stats');
+  document.getElementById('viewArchive').style.display = arch ? 'grid' : 'none';
+  document.getElementById('stats').style.display = arch ? 'none' : 'block';
+  document.getElementById('tabArchive').classList.toggle('on', arch);
+  document.getElementById('tabStats').classList.toggle('on', !arch);
+  if(!arch){
+    if(Stats.loaded){ renderStats(); }
+    else if(!Stats.loading){ renderStats(); Stats.load().then(renderStats); }
+  }
+}
+
 function renderAll(){ renderNav(); renderList(); renderDetail(); }
 
 async function startApp(){
@@ -270,10 +606,16 @@ async function startApp(){
     const lo=document.getElementById('logoutBtn'); lo.style.display='inline-block';
     lo.onclick=async()=>{ await supa.auth.signOut(); location.reload(); };
   }
+  document.getElementById('tabArchive').onclick=function(){ showView('archive'); };
+  document.getElementById('tabStats').onclick=function(){ showView('stats'); };
   await Copied.load();
   renderAll();
   if(supa){
-    supa.channel('copied-rt').on('postgres_changes',{event:'*',schema:'public',table:'copied'}, async()=>{ await Copied.load(); renderList(); renderDetail(); }).subscribe();
+    supa.channel('copied-rt').on('postgres_changes',{event:'*',schema:'public',table:'copied'}, async()=>{
+      await Copied.load(); renderList(); renderDetail();
+      Stats.loaded=false;
+      if(document.getElementById('stats').style.display==='block'){ await Stats.load(); renderStats(); }
+    }).subscribe();
   }
 }
 
